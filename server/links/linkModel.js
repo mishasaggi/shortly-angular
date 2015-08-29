@@ -22,4 +22,6 @@ LinkSchema.pre('save', function(next){
   next();
 });
 
+//the above runs on save() - create a function to add to mongoDb
+
 module.exports = mongoose.model('Link', LinkSchema);

@@ -2,7 +2,39 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  //communicate with controller
+  //call server controllers - methods
+  //trigger - createSha
+
+  var getLinks = function() {
+     return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
+    .then(function (resp) {
+      return resp.data; //check if .link is correct
+      // how to send status code 200
+    });
+  };
+
+  var addLink = function(data) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: data
+    })
+    .then(function (resp) {
+      return resp.data;
+      //how to send status code 201
+    });
+  };
+
+  return {
+    getLinks: getLinks,
+    addLink: addLink
+  };
 })
+
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user

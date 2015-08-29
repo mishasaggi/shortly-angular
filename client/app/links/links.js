@@ -4,11 +4,16 @@ angular.module('shortly.links', [])
   // Your code here
   $scope.data = {};
   $scope.getLinks = function() {
-    //add links here? or fetch
+    //run getLinks
+    //then(pass in the data)
+    //add it to object (as link)
+    //return response (object.data)
 
+    Links.getLinks()
+    .then(function(data){
+      return $scope.data.links = data;
+    });
   };
 
-
-
-
+  $scope.getLinks();
 });
